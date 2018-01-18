@@ -50,7 +50,10 @@ app.get("/", (req, res) => {
 })
 
 app.post("/user", (req, res) => {
-  const user = new User(req.body)
+  const { username } = req.body
+  const password = bcrypt.hashSync(req.body.password)
+  const { email } = req.body
+  const user = new User({ username, email, password })
 
   user.save()
     .then(() => { res.status(201).send("user created") })
