@@ -39,7 +39,7 @@ class SignUp extends React.Component {
         "Content-Type": "application/json"
       },
       body: JSON.stringify(this.state)
-    }).then((err, response) => {
+    }).then(response => {
       console.log(response)
       response.json()
     }).catch(err => {
@@ -77,7 +77,7 @@ class SignUp extends React.Component {
             placeholder="password"
             minLength="8"
             maxLength="15"
-            pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$"
+            pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$" // Uppercase, lowercase and number
             required />
           <button type="submit">Create user</button>
         </form>
